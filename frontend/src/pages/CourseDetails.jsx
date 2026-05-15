@@ -31,7 +31,6 @@ function CourseDetails() {
   const { user } = useSelector((state) => state.profile)
   const { token } = useSelector((state) => state.auth)
   const { loading } = useSelector((state) => state.profile)
-  const { paymentLoading } = useSelector((state) => state.course)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -97,7 +96,7 @@ function CourseDetails() {
 
 
   // Loading skeleton
-  if (paymentLoading || loading || !response) {
+  if (loading || !response) {
     return (
       <div className={`mt-24 p-5 flex flex-col justify-center gap-4  `}>
         <div className="flex flex-col sm:flex-col-reverse  gap-4 ">
