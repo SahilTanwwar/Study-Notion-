@@ -2,6 +2,11 @@
 # Project Description 📝
 StudyNotion is a fully functional ed-tech platform that enables users to create, consume, and rate educational content. <br/>
 The platform is built using the **MERN stack**, which includes ReactJS, NodeJS, MongoDB, and ExpressJS.
+
+## 🌍 Live Links
+- **Frontend:** https://study-notionapp.netlify.app/
+- **Backend API:** https://study-notion-backend-20no.onrender.com/api/v1
+
 <hr/>
 
 
