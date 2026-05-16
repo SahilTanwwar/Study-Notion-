@@ -14,6 +14,20 @@ import Contact from "./pages/Contact";
 import PageNotFound from "./pages/PageNotFound";
 import CourseDetails from './pages/CourseDetails';
 import Catalog from './pages/Catalog';
+import HtmlCourse from './pages/HtmlCourse';
+import CssCourse from './pages/CssCourse';
+import JavaScriptCourse from './pages/JavaScriptCourse';
+import ReactCourse from './pages/ReactCourse';
+import ResponsiveWebDesignCourse from './pages/ResponsiveWebDesignCourse';
+import JavaCourse from './pages/JavaCourse';
+import PythonCourse from './pages/PythonCourse';
+import ScssCourse from './pages/ScssCourse';
+import FlaskCourse from './pages/FlaskCourse';
+import DjangoCourse from './pages/DjangoCourse';
+import FastApiCourse from './pages/FastApiCourse';
+import NextjsCourse from './pages/NextjsCourse';
+import NuxtjsCourse from './pages/NuxtjsCourse';
+import SanityCourse from './pages/SanityCourse';
  
 import Navbar from "./components/common/Navbar"
 
@@ -92,6 +106,20 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="catalog/:catalogName" element={<Catalog />} />
         <Route path="courses/:courseId" element={<CourseDetails />} />
+        <Route path="html-course" element={<HtmlCourse />} />
+        <Route path="css-course" element={<CssCourse />} />
+        <Route path="javascript-course" element={<JavaScriptCourse />} />
+        <Route path="react-course" element={<ReactCourse />} />
+        <Route path="responsive-web-design-course" element={<ResponsiveWebDesignCourse />} />
+        <Route path="java-course" element={<JavaCourse />} />
+        <Route path="python-course" element={<PythonCourse />} />
+        <Route path="scss-course" element={<ScssCourse />} />
+        <Route path="flask-course" element={<FlaskCourse />} />
+        <Route path="django-course" element={<DjangoCourse />} />
+        <Route path="fastapi-course" element={<FastApiCourse />} />
+        <Route path="nextjs-course" element={<NextjsCourse />} />
+        <Route path="nuxtjs-course" element={<NuxtjsCourse />} />
+        <Route path="sanity-course" element={<SanityCourse />} />
 
         {/* Open Route - for Only Non Logged in User */}
         <Route

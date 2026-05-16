@@ -73,11 +73,17 @@ exports.sendOTP = async (req, res) => {
 exports.signup = async (req, res) => {
     try {
         // extract data 
-        const { firstName, lastName, email, password, confirmPassword,
-            accountType, contactNumber, otp } = req.body;
+        let { firstName, lastName, email, password, confirmPassword,
+            accountType, contactNumber } = req.body;
+        
+        // Trim email to remove whitespace
+        email = email.trim().toLowerCase();
+        
+        console.log('SIGNUP ATTEMPT - Email:', email);
 
         // validation
-        if (!firstName || !lastName || !email || !password || !confirmPassword || !accountType || !otp) {
+        if (!firstName || !lastName || !email || !password || !confirmPassword || !accountType) {
+            console.log('VALIDATION FAILED - Missing fields');
             return res.status(401).json({
                 success: false,
                 message: 'All fields are required..!'
@@ -103,31 +109,6 @@ exports.signup = async (req, res) => {
             });
         }
 
-        // find most recent otp stored for user in DB
-        const recentOtp = await OTP.findOne({ email }).sort({ createdAt: -1 }).limit(1);
-        // console.log('recentOtp ', recentOtp)
-
-        // .sort({ createdAt: -1 }): 
-        // It's used to sort the results based on the createdAt field in descending order (-1 means descending). 
-        // This way, the most recently created OTP will be returned first.
-
-        // .limit(1): It limits the number of documents returned to 1. 
-
-
-        // if otp not found
-        if (!recentOtp || recentOtp.length == 0) {
-            return res.status(400).json({
-                success: false,
-                message: 'Otp not found in DB, please try again'
-            });
-        } else if (otp !== recentOtp.otp) {
-            // otp invalid
-            return res.status(400).json({
-                success: false,
-                message: 'Invalid Otp'
-            })
-        }
-
         // hash - secure passoword
         let hashedPassword = await bcrypt.hash(password, 10);
 
@@ -146,6 +127,8 @@ exports.signup = async (req, res) => {
             approved: approved,
             image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`
         });
+        
+        console.log('USER CREATED SUCCESSFULLY:', userData._id);
 
         // return success message
         res.status(200).json({
@@ -169,7 +152,12 @@ exports.signup = async (req, res) => {
 // ================ LOGIN ================
 exports.login = async (req, res) => {
     try {
-        const { email, password } = req.body;
+        let { email, password } = req.body;
+        
+        // Trim email to remove whitespace
+        email = email.trim().toLowerCase();
+        
+        console.log('LOGIN ATTEMPT - Email:', email);
 
         // validation
         if (!email || !password) {
@@ -181,8 +169,11 @@ exports.login = async (req, res) => {
 
         // check user is registered and saved data in DB
         let user = await User.findOne({ email }).populate('additionalDetails');
+        
+        console.log('USER FOUND:', user ? 'YES' : 'NO');
 
         if (!user) {
+            console.log('Email not found in database:', email);
             return res.status(401).json({
                 success: false,
                 message: 'You are not registered with us'

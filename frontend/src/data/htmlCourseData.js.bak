@@ -1,0 +1,349 @@
+// HTML Course Data (Hardcoded)
+export const htmlCourseData = {
+    _id: "html-course-001",
+    courseName: "HTML - Basic to Advanced",
+    courseDescription: "Learn HTML from basics to advanced. Master semantic HTML, forms, accessibility, and modern web standards.",
+    instructor: {
+        firstName: "Study",
+        lastName: "Notion",
+        _id: "instructor-001"
+    },
+    thumbnail: "https://tse1.mm.bing.net/th/id/OIP.Qeo2ZZHUxLNJf4p7PsBzaAHaEN?pid=Api&P=0&h=180",
+    price: 499,
+    ratingAndReviews: [],
+    whatYouWillLearn: "• Understand HTML fundamentals and document structure\n• Create semantic and accessible HTML\n• Work with forms and input validation\n• Implement advanced HTML5 features\n• Best practices and performance optimization",
+    
+    courseContent: [
+        {
+            sectionName: "📚 Module 1: HTML Fundamentals",
+            lessons: [
+                {
+                    title: "1.1 Introduction to HTML",
+                    duration: "15 min",
+                    content: `# Introduction to HTML
+
+HTML (HyperText Markup Language) is the standard markup language used to create web pages.
+
+## What is HTML?
+- **HTML** = Structure
+- **CSS** = Styling
+- **JavaScript** = Interactivity
+
+## Why Learn HTML?
+1. Foundation of web development
+2. Essential for front-end developers
+3. Required for all web pages
+4. Easy to learn, powerful when combined with CSS & JavaScript
+
+## Getting Started
+You only need:
+- A text editor (VS Code, Sublime Text, etc.)
+- A web browser
+- Your enthusiasm to learn!`
+                },
+                {
+                    title: "1.2 Setting Up Your Environment",
+                    duration: "12 min",
+                    content: `# Setting Up Your Development Environment
+
+## Step 1: Choose a Code Editor
+- **Visual Studio Code** (Recommended - Free)
+- Download from: https://code.visualstudio.com/
+- Install on your computer
+
+## Step 2: Install Extensions
+- Live Server - Real-time preview
+- Prettier - Code formatter
+- HTML Snippets - Quick HTML generation
+
+## Step 3: Create Your First Project
+\`\`\`bash
+mkdir MyWebsite
+cd MyWebsite
+\`\`\`
+
+## Step 4: Create index.html
+1. Open VS Code
+2. Create new file
+3. Save as: index.html
+4. Right-click → Open with Live Server`
+                },
+                {
+                    title: "1.3 HTML Document Structure",
+                    duration: "18 min",
+                    content: `# HTML Document Structure
+
+## Basic Template
+\`\`\`html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+</body>
+</html>
+\`\`\`
+
+## Key Elements
+- **DOCTYPE** - Tells browser this is HTML5
+- **Head** - Metadata and settings
+- **Body** - Visible content`
+                },
+                {
+                    title: "1.4 Common HTML Tags",
+                    duration: "20 min",
+                    content: `# Common HTML Tags
+
+## Headings
+- \`<h1>\` to \`<h6>\` - Heading levels (h1 only once per page)
+
+## Text Elements
+- \`<p>\` - Paragraph
+- \`<strong>\` - Important text
+- \`<em>\` - Emphasized text
+- \`<br>\` - Line break
+- \`<hr>\` - Horizontal line
+
+## Lists
+- \`<ul>\` - Unordered list
+- \`<ol>\` - Ordered list
+- \`<li>\` - List item
+
+## Links and Images
+- \`<a href="">\` - Link
+- \`<img src="" alt="">\` - Image`
+                }
+            ]
+        },
+        {
+            sectionName: "🏗️ Module 2: Semantic HTML",
+            lessons: [
+                {
+                    title: "2.1 What is Semantic HTML?",
+                    duration: "16 min",
+                    content: `# What is Semantic HTML?
+
+## Definition
+Semantic HTML means using HTML elements that clearly describe their meaning.
+
+## Benefits
+1. **Better SEO** - Search engines understand structure
+2. **Accessibility** - Screen readers work better
+3. **Code Quality** - Easier to read and maintain
+4. **Mobile Friendly** - Better responsive design
+
+## Semantic Elements
+- \`<header>\` - Page header
+- \`<nav>\` - Navigation
+- \`<main>\` - Main content
+- \`<article>\` - Independent content
+- \`<section>\` - Thematic section
+- \`<aside>\` - Sidebar
+- \`<footer>\` - Page footer`
+                },
+                {
+                    title: "2.2 Semantic Page Layout",
+                    duration: "22 min",
+                    content: `# Semantic Page Layout
+
+## Typical Structure
+\`\`\`html
+<header>
+    <h1>Website Title</h1>
+    <nav>Navigation</nav>
+</header>
+
+<main>
+    <article>Content</article>
+    <aside>Sidebar</aside>
+</main>
+
+<footer>Footer</footer>
+\`\`\`
+
+## Benefits
+- Better SEO rankings
+- Improved accessibility
+- Cleaner, more readable code
+- Mobile responsive`
+                }
+            ]
+        },
+        {
+            sectionName: "📝 Module 3: HTML Forms",
+            lessons: [
+                {
+                    title: "3.1 Form Basics",
+                    duration: "18 min",
+                    content: `# HTML Forms Basics
+
+## Form Structure
+\`\`\`html
+<form action="/submit" method="POST">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username">
+    <input type="submit" value="Submit">
+</form>
+\`\`\`
+
+## Input Types
+- text, email, password
+- number, checkbox, radio
+- submit, reset buttons
+
+## Important: Always use labels!`
+                },
+                {
+                    title: "3.2 Advanced Form Elements",
+                    duration: "20 min",
+                    content: `# Advanced Form Elements
+
+## HTML5 Input Types
+- \`date\` - Date picker
+- \`time\` - Time picker
+- \`color\` - Color picker
+- \`range\` - Slider
+- \`file\` - File upload
+- \`url\`, \`tel\`, \`search\`
+
+## Form Attributes
+- \`required\` - Field required
+- \`placeholder\` - Hint text
+- \`min/max\` - Value limits
+- \`disabled\` - Disable field
+- \`readonly\` - Read-only field`
+                }
+            ]
+        },
+        {
+            sectionName: "♿ Module 4: Accessibility & Best Practices",
+            lessons: [
+                {
+                    title: "4.1 Web Accessibility Basics",
+                    duration: "17 min",
+                    content: `# Web Accessibility Basics
+
+## What is Accessibility?
+Making websites usable for everyone, including people with disabilities.
+
+## Best Practices
+1. Use semantic HTML
+2. Add alt text to images
+3. Proper heading hierarchy
+4. Label form inputs
+5. Keyboard navigation support
+6. Good color contrast
+7. Test with screen readers
+
+## Screen Readers
+- NVDA (Windows, Free)
+- VoiceOver (Mac, Built-in)`
+                },
+                {
+                    title: "4.2 HTML Best Practices",
+                    duration: "19 min",
+                    content: `# HTML Best Practices
+
+## Do's ✅
+- Use semantic HTML
+- Validate your HTML
+- Use meaningful class names
+- Proper code indentation
+- Mobile-first approach
+- Descriptive link text
+- Alt text for images
+
+## Don'ts ❌
+- Don't use deprecated elements
+- Don't skip indentation
+- Don't use multiple h1 tags
+- Don't forget alt text
+- Don't use vague link text
+
+## Validate at: https://validator.w3.org/`
+                }
+            ]
+        },
+        {
+            sectionName: "🎨 Module 5: HTML5 Advanced Features",
+            lessons: [
+                {
+                    title: "5.1 Video & Audio Tags",
+                    duration: "16 min",
+                    content: `# HTML5 Video & Audio Tags
+
+## Video Tag
+\`\`\`html
+<video width="320" height="240" controls>
+    <source src="movie.mp4" type="video/mp4">
+    Your browser does not support video.
+</video>
+\`\`\`
+
+## Video Attributes
+- controls, autoplay, muted
+- loop, poster
+
+## Audio Tag
+\`\`\`html
+<audio controls>
+    <source src="audio.mp3" type="audio/mpeg">
+</audio>
+\`\`\``
+                },
+                {
+                    title: "5.2 Canvas & SVG Introduction",
+                    duration: "18 min",
+                    content: `# Canvas & SVG in HTML5
+
+## Canvas - Graphics Container
+- Drawn with JavaScript
+- Used for games, animations
+- Pixel-based (raster)
+
+## SVG - Vector Graphics
+- XML-based format
+- Perfect for logos, icons
+- Scales without quality loss
+
+## Canvas vs SVG
+- Canvas: Games, animations
+- SVG: Logos, icons, diagrams`
+                },
+                {
+                    title: "5.3 Data Attributes & APIs",
+                    duration: "15 min",
+                    content: `# Data Attributes & Web APIs
+
+## Data Attributes
+Store custom data on HTML elements:
+\`\`\`html
+<div data-user-id="123" data-role="admin">
+    User Profile
+</div>
+\`\`\`
+
+## Web APIs
+- Geolocation - Get location
+- Local Storage - Store data
+- Fetch API - Get server data
+- Session Storage - Temp storage
+
+## Example: Local Storage
+\`\`\`html
+<button onclick="saveName()">Save</button>
+<script>
+    function saveName() {
+        localStorage.setItem('name', 'John');
+    }
+</script>
+\`\`\``
+                }
+            ]
+        }
+    ]
+};

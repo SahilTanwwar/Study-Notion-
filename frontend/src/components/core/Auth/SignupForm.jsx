@@ -4,8 +4,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
-import { sendOtp } from "../../../services/operations/authAPI"
-import { setSignupData } from "../../../slices/authSlice"
+import { signUp } from "../../../services/operations/authAPI"
 import { ACCOUNT_TYPE } from "../../../utils/constants"
 import Tab from "../../common/Tab"
 
@@ -54,11 +53,8 @@ function SignupForm() {
       accountType,
     };
 
-    // Setting signup data to state
-    // To be used after otp verification
-    dispatch(setSignupData(signupData));
-    // Send OTP to user for verification
-    dispatch(sendOtp(formData.email, navigate));
+    // Directly signup without OTP verification
+    dispatch(signUp(accountType, firstName, lastName, email.trim(), password, confirmPassword, navigate));
 
     // Reset form data
     setFormData({
@@ -139,7 +135,7 @@ function SignupForm() {
           </p>
           <input
             required
-            type="text"
+            type="email"
             name="email"
             value={email}
             onChange={handleOnChange}

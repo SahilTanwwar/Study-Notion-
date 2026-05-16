@@ -14,6 +14,12 @@ import ReviewSlider from '../components/common/ReviewSlider'
 import Course_Slider from '../components/core/Catalog/Course_Slider'
 
 import { getCatalogPageData } from '../services/operations/pageAndComponentData'
+import { htmlCourseData } from '../data/htmlCourseData'
+import { cssCourseData } from '../data/cssCourseData'
+import { jsCourseData } from '../data/jsCourseData'
+import { reactCourseData } from '../data/reactCourseData'
+import { javaCourseData } from '../data/javaCourseData'
+import { pythonCourseData } from '../data/pythonCourseData'
 
 import { MdOutlineRateReview } from 'react-icons/md'
 import { FaArrowRight } from "react-icons/fa"
@@ -103,18 +109,6 @@ const Home = () => {
                 {/*Section1  */}
                 <div className='relative h-[450px] md:h-[550px] justify-center mx-auto flex flex-col w-11/12 max-w-maxContent items-center text-white '>
 
-                    <Link to={"/signup"}>
-                        <div className='z-0 group p-1 mx-auto rounded-full bg-richblack-800 font-bold text-richblack-200
-                                        transition-all duration-200 hover:scale-95 w-fit'>
-                            <div className='flex flex-row items-center gap-2 rounded-full px-10 py-[5px]
-                              transition-all duration-200 group-hover:bg-richblack-900'>
-                                <p>Become an Instructor</p>
-                                <FaArrowRight />
-                            </div>
-                        </div>
-
-                    </Link>
-
                     <motion.div
                         variants={fadeIn('left', 0.1)}
                         initial='hidden'
@@ -138,13 +132,10 @@ const Home = () => {
 
 
                     <div className='flex flex-row gap-7 mt-8'>
-                        <CTAButton active={true} linkto={"/signup"}>
+                        <button onClick={() => document.getElementById('featured-courses').scrollIntoView({ behavior: 'smooth' })}
+                            className='bg-yellow-50 text-black rounded-md font-semibold px-6 py-3 hover:scale-95 transition-all duration-200'>
                             Learn More
-                        </CTAButton>
-
-                        <CTAButton active={false} linkto={"/login"}>
-                            Book a Demo
-                        </CTAButton>
+                        </button>
                     </div>
                 </div>
 
@@ -164,18 +155,12 @@ const Home = () => {
                             subheading={
                                 "Our courses are designed and taught by industry experts who have years of experience in coding and are passionate about sharing their knowledge with you."
                             }
-                            ctabtn1={
-                                {
-                                    btnText: "try it yourself",
-                                    linkto: "/signup",
-                                    active: true,
-                                }
-                            }
+                            ctabtn1={null}
                             ctabtn2={
                                 {
                                     btnText: "learn more",
-                                    linkto: "/login",
-                                    active: false,
+                                    link: "#featured-courses",
+                                    active: true,
                                 }
                             }
 
@@ -199,16 +184,8 @@ const Home = () => {
                             subheading={
                                 "Go ahead, give it a try. Our hands-on learning environment means you'll be writing real code from your very first lesson."
                             }
-                            ctabtn1={{
-                                btnText: "Continue Lesson",
-                                link: "/signup",
-                                active: true,
-                            }}
-                            ctabtn2={{
-                                btnText: "Learn More",
-                                link: "/signup",
-                                active: false,
-                            }}
+                            ctabtn1={null}
+                            ctabtn2={null}
                             codeColor={"text-white"}
                             codeblock={`import React from "react";\n import CTAButton from "./Button";\nimport TypeAnimation from "react-type";\nimport { FaArrowRight } from "react-icons/fa";\n\nconst Home = () => {\nreturn (\n<div>Home</div>\n)\n}\nexport default Home;`}
                             backgroundGradient={"code-block2-grad"}
@@ -220,13 +197,93 @@ const Home = () => {
                         <h2 className='text-white mb-6 text-2xl '>
                             Popular Picks for You 🏆
                         </h2>
-                        <Course_Slider Courses={CatalogPageData?.selectedCategory?.courses} />
+                        <Course_Slider Courses={[javaCourseData, pythonCourseData, reactCourseData]} />
                     </div>
+
+                    {/* Featured Courses Section */}
+                    <div id='featured-courses' className='mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent'>
+                        <h2 className='text-white mb-10 text-3xl font-bold'>Featured Courses 🚀</h2>
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+                            <Link to={`/html-course`} className='block group'>
+                                <div className='bg-gradient-to-br from-richblack-800 to-richblack-900 rounded-2xl overflow-hidden border border-richblack-700 hover:border-yellow-50 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-200/10 h-full flex flex-col'>
+                                    <div className='relative overflow-hidden bg-richblack-700 p-6'>
+                                        <div className='bg-gradient-to-br from-orange-400/20 to-orange-600/20 rounded-xl p-8 flex items-center justify-center min-h-[220px] group-hover:scale-110 transition-transform duration-300'>
+                                            <img 
+                                                src={htmlCourseData.thumbnail} 
+                                                alt={htmlCourseData.courseName}
+                                                className='h-48 w-auto object-contain drop-shadow-lg'
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className='flex flex-col gap-3 p-6 flex-grow'>
+                                        <h3 className='text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-50 to-yellow-200'>{htmlCourseData.courseName}</h3>
+                                        <p className='text-richblack-200 text-sm leading-relaxed flex-grow'>{htmlCourseData.courseDescription}</p>
+                                        <p className='text-yellow-50 font-semibold text-base pt-2 group-hover:translate-x-1 transition-transform duration-300'>Click to view course →</p>
+                                    </div>
+                                </div>
+                            </Link>
+                            <Link to={`/css-course`} className='block group'>
+                                <div className='bg-gradient-to-br from-richblack-800 to-richblack-900 rounded-2xl overflow-hidden border border-richblack-700 hover:border-yellow-50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-200/10 h-full flex flex-col'>
+                                    <div className='relative overflow-hidden bg-richblack-700 p-6'>
+                                        <div className='bg-gradient-to-br from-blue-400/20 to-blue-600/20 rounded-xl p-8 flex items-center justify-center min-h-[220px] group-hover:scale-110 transition-transform duration-300'>
+                                            <img 
+                                                src={cssCourseData.thumbnail} 
+                                                alt={cssCourseData.courseName}
+                                                className='h-48 w-auto object-contain drop-shadow-lg'
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className='flex flex-col gap-3 p-6 flex-grow'>
+                                        <h3 className='text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-50 to-yellow-200'>{cssCourseData.courseName}</h3>
+                                        <p className='text-richblack-200 text-sm leading-relaxed flex-grow'>{cssCourseData.courseDescription}</p>
+                                        <p className='text-yellow-50 font-semibold text-base pt-2 group-hover:translate-x-1 transition-transform duration-300'>Click to view course →</p>
+                                    </div>
+                                </div>
+                            </Link>
+                            <Link to={`/javascript-course`} className='block group'>
+                                <div className='bg-gradient-to-br from-richblack-800 to-richblack-900 rounded-2xl overflow-hidden border border-richblack-700 hover:border-yellow-50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-200/10 h-full flex flex-col'>
+                                    <div className='relative overflow-hidden bg-richblack-700 p-6'>
+                                        <div className='bg-gradient-to-br from-purple-400/20 to-purple-600/20 rounded-xl p-8 flex items-center justify-center min-h-[220px] group-hover:scale-110 transition-transform duration-300'>
+                                            <img 
+                                                src={jsCourseData.thumbnail} 
+                                                alt={jsCourseData.courseName}
+                                                className='h-48 w-auto object-contain drop-shadow-lg'
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className='flex flex-col gap-3 p-6 flex-grow'>
+                                        <h3 className='text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-50 to-yellow-200'>{jsCourseData.courseName}</h3>
+                                        <p className='text-richblack-200 text-sm leading-relaxed flex-grow'>{jsCourseData.courseDescription}</p>
+                                        <p className='text-yellow-50 font-semibold text-base pt-2 group-hover:translate-x-1 transition-transform duration-300'>Click to view course →</p>
+                                    </div>
+                                </div>
+                            </Link>
+                            <Link to={`/react-course`} className='block group'>
+                                <div className='bg-gradient-to-br from-richblack-800 to-richblack-900 rounded-2xl overflow-hidden border border-richblack-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-200/10 h-full flex flex-col'>
+                                    <div className='relative overflow-hidden bg-richblack-700 p-6'>
+                                        <div className='bg-gradient-to-br from-cyan-400/20 to-blue-600/20 rounded-xl p-8 flex items-center justify-center min-h-[220px] group-hover:scale-110 transition-transform duration-300'>
+                                            <img 
+                                                src={reactCourseData.thumbnail} 
+                                                alt={reactCourseData.courseName}
+                                                className='h-48 w-auto object-contain drop-shadow-lg'
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className='flex flex-col gap-3 p-6 flex-grow'>
+                                        <h3 className='text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400'>{reactCourseData.courseName}</h3>
+                                        <p className='text-richblack-200 text-sm leading-relaxed flex-grow'>{reactCourseData.courseDescription}</p>
+                                        <p className='text-cyan-400 font-semibold text-base pt-2 group-hover:translate-x-1 transition-transform duration-300'>Click to view course →</p>
+                                    </div>
+                                </div>
+                            </Link>
+                        </div>
+                    </div>
+
                     <div className=' mx-auto box-content w-full max-w-maxContentTab px- py-12 lg:max-w-maxContent'>
                         <h2 className='text-white mb-6 text-2xl '>
                             Top Enrollments Today 🔥
                         </h2>
-                        <Course_Slider Courses={CatalogPageData?.mostSellingCourses} />
+                        <Course_Slider Courses={[htmlCourseData, cssCourseData, jsCourseData]} />
                     </div>
 
 
@@ -238,19 +295,6 @@ const Home = () => {
                     <div className='homepage_bg h-[310px]'>
                         <div className='w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-5 mx-auto'>
                             <div className='h-[150px]'></div>
-                            <div className='flex flex-row gap-7 text-white '>
-                                <CTAButton active={true} linkto={"/signup"}>
-                                    <div className='flex items-center gap-3' >
-                                        Explore Full Catalog
-                                        <FaArrowRight />
-                                    </div>
-                                </CTAButton>
-                                <CTAButton active={false} linkto={"/signup"}>
-                                    <div>
-                                        Learn more
-                                    </div>
-                                </CTAButton>
-                            </div>
                         </div>
                     </div>
 
@@ -265,34 +309,17 @@ const Home = () => {
                                 <div className='text-[16px]'>
                                     The modern StudyNotion is the dictates its own terms. Today, to be a competitive specialist requires more than professional skills.
                                 </div>
-                                <CTAButton active={true} linkto={"/signup"}>
-                                    <div>
-                                        Learn more
-                                    </div>
-                                </CTAButton>
+                                <button onClick={() => document.getElementById('featured-courses').scrollIntoView({ behavior: 'smooth' })}
+                                    className='bg-yellow-50 text-black rounded-md font-bold text-[13px] px-6 py-3 hover:scale-95 transition-all duration-200'>
+                                    Learn more
+                                </button>
                             </div>
                         </div>
-
-
-                        {/* leadership */}
-                        <TimelineSection />
 
                         <LearningLanguageSection />
 
                     </div>
 
-                </div>
-
-
-                {/*Section 3 */}
-                <div className='mt-14 w-11/12 mx-auto max-w-maxContent flex-col items-center justify-between gap-8 first-letter bg-richblack-900 text-white'>
-                    <InstructorSection />
-
-                    {/* Reviws from Other Learner */}
-                    <h1 className="text-center text-3xl lg:text-4xl font-semibold mt-8 flex justify-center items-center gap-x-3">
-                        Reviews from other learners <MdOutlineRateReview className='text-yellow-25' />
-                    </h1>
-                    <ReviewSlider />
                 </div>
 
                 {/*Footer */}

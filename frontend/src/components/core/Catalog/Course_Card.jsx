@@ -22,7 +22,7 @@ function Course_Card({ course, Height }) {
 
   return (
     <div className='hover:scale-[1.03] transition-all duration-200 z-50 '>
-      <Link to={`/courses/${course._id}`}>
+      <Link to={course?.customLink || `/courses/${course?._id}`}>
         <div className="">
           <div className="rounded-lg">
             <Img
@@ -52,7 +52,7 @@ function Course_Card({ course, Height }) {
                 {course?.ratingAndReviews?.length} Ratings
               </span>
             </div>
-            <p className="text-xl text-richblack-5">Rs. {course?.price}</p>
+            <p className="text-xl text-richblack-5">{course?.price ? `Rs. ${course?.price}` : "Free"}</p>
           </div>
         </div>
       </Link>
